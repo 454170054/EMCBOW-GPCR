@@ -1,2 +1,2 @@
 # EMCBOW-GPCR
-A new method for Identifying GPCRs
+A new method for Identifying GPCRs.
