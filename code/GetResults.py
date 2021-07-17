@@ -84,8 +84,8 @@ def train_model(x, y, name):
         X_train, y_train = x[train_index], y[train_index]
         X_test, y_test = x[test_index], y[test_index]
         model = create_dl_model()
-        model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=0)
-        layermodel_1 = keras.models.Model(inputs=model.input, outputs=model.layers[2].output, callbacks=keras.callbacks.EarlyStopping(monitor='loss'))
+        model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=0, callbacks=keras.callbacks.EarlyStopping(monitor='loss', patience=3))
+        layermodel_1 = keras.models.Model(inputs=model.input, outputs=model.layers[2].output)
         X_train = layermodel_1.predict(X_train)
         X_test = layermodel_1.predict(X_test)
         xgb = XGBClassifier(n_estimators=110, learning_rate=0.12)
