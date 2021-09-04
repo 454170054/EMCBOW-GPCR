@@ -179,7 +179,6 @@ def get_all_fetures(data):
             all_features = get_single_features(sequence)
         else:
             all_features = np.r_[all_features, get_single_features(sequence)]
-    np.save("../files/BOW_features.npy", all_features)
     return all_features
 
 

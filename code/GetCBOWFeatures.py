@@ -30,7 +30,6 @@ def get_features(file_path, model):
             count += 1
         else:
             features = np.r_[features, single_feature]
-    # np.save(r'../files/Liao/models/features_4.npy', features)
     return features
 
 
@@ -53,7 +52,7 @@ def merge_features():
     feautures_2 = get_features(r'../files/all_3.txt', model_2)
     feautures_3 = get_features(r'../files/all_4.txt', model_3)
     CBOW_features = np.concatenate([feautures_1, feautures_2, feautures_3], axis=1)
-    np.save(r'../files/CBOW_features.npy', CBOW_features)
+    return CBOW_features
 
 
 class EpochLogger(CallbackAny2Vec):

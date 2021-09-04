@@ -1,6 +1,9 @@
 # EMCBOW-GPCR
-A new method for Identifying GPCRs.
+--A new method for Identifying GPCRs.
 
-Before using the code, please create a new python virtual environment(python version == 3.7.0) and install packages listed in requirements.txt.
+--Before using the code, please create a new python virtual environment(python version == 3.7.0) and install packages listed in requirements.txt.
 
-Run the python file named GetResults.py to get  results.
+Notice: When running for the first time, please run the python file named GetResults.py to generate models.
+
+--You can run the Predict.py to predict GPCR by giving a FAST file.
+--For Example: python Predict.py "test.fasta"
