@@ -7,26 +7,16 @@ import totxt
 
 
 def train_model():
-    '''
-    train the CBOW models
-    '''
-    print("train cbow models...")
     totxt.get_text(r'../files/all_data.xlsx')
-    print("train cbow models 1 .. Please wait patiently")
     sentences = word2vec.Text8Corpus(r'..\files\all_2.txt')
     word2vec.Word2Vec(sentences, min_count=0, size=128, window=5, compute_loss=True, iter=10, workers=8, callbacks=[EpochLogger("l2")])
-    print("train cbow models 2 .. Please wait patiently")
     sentences = word2vec.Text8Corpus(r'..\files\all_3.txt')
     word2vec.Word2Vec(sentences, min_count=0, size=256, window=5, compute_loss=True, iter=10, workers=8, callbacks=[EpochLogger("l3")])
-    print("train cbow models 3 .. Please wait patiently")
     sentences = word2vec.Text8Corpus(r'..\files\all_4.txt')
     word2vec.Word2Vec(sentences, min_count=0, size=512, window=5, compute_loss=True, iter=10, workers=8, callbacks=[EpochLogger("l4")])
 
 
 def get_features(file_path, model):
-    '''
-    extract the CBOW features
-    '''
     f = open(file_path, 'r')
     content = f.readlines()
     f.close()
@@ -45,9 +35,6 @@ def get_features(file_path, model):
 
 
 def merge_features():
-    '''
-    concatenate the three kinds CBOW features
-    '''
     train_model()
     print("extract cbow features...")
     if os.path.exists(r'../files/l2.model'):
